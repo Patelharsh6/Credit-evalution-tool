@@ -12,4 +12,4 @@ function evaluateCredit() {
     
     const score = (Math.random() * 100).toFixed(2);
     document.getElementById('creditScore').innerText = `Credit Score: ${score}`;
-}
+}   
