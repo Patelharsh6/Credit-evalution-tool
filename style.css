@@ -1,0 +1,226 @@
+/* General Reset and Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Header Section */
+header {
+    background-color: #2c3e50;
+    padding: 20px;
+    color: white;
+    position: relative;
+}
+
+header .logo h1 {
+    display: inline-block;
+    font-size: 28px;
+}
+
+header nav ul {
+    list-style: none;
+    float: right;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header nav ul li a:hover {
+    color: #3498db;
+}
+
+/* Mobile Menu Toggle */
+#menu-icon {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+#hero {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+#hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-btn {
+    background-color: #e67e22;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #d35400;
+}
+
+/* Features Section */
+#features {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+#features h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+.features-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.feature {
+    width: 250px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* Mobile View */
+@media screen and (max-width: 768px) {
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background-color: #2c3e50;
+        padding: 20px;
+        border-radius: 8px;
+        width: 200px;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    header nav ul li a {
+        font-size: 18px;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    /* Toggle class to show menu */
+    header nav.active ul {
+        display: flex;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
+
+/* Financial Risk Scoring Section */
+#financial-risk {
+    background-color: #ecf0f1;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+/* For Farmers and Financial Institutions Section */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+section ul {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+section ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer nav ul {
+    list-style: none;
+    margin: 10px 0;
+}
+
+footer nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+footer nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+footer nav ul li a:hover {
+    color: #3498db;
+}
