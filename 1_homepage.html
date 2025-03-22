@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form action="#">
+        <!-- Mobile Number Login -->
+        <div class="login-option">
+          <button type="button" class="login-method" onclick="showMobileLogin()">Login with Mobile</button>
+        </div>
+
+        <!-- Email ID Login -->
+        <div class="login-option">
+          <button type="button" class="login-method" onclick="showEmailLogin()">Login with Email</button>
+        </div>
+
+        <!-- Mobile Login Form -->
+        <div id="mobile-login" class="login-form" style="display: none;">
+          <input type="tel" id="mobile" name="mobile" placeholder="Enter Mobile Number" required>
+          <input type="password" id="mobile-password" name="password" placeholder="Enter Password" required>
+          <button type="submit" class="submit-btn">Login</button>
+        </div>
+
+        <!-- Email Login Form -->
+        <div id="email-login" class="login-form" style="display: none;">
+          <input type="email" id="email" name="email" placeholder="Enter Email Address" required>
+          <input type="password" id="email-password" name="password" placeholder="Enter Password" required>
+          <button type="submit" class="submit-btn">Login</button>
+        </div>
+        
+        <!-- "Do you have an account?" section -->
+        <div class="signup-option">
+          <p>Don't have an account? <a href="signup.html" class="signup-link">Sign Up</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Learn More Section -->
+  <div class="learn-more-container">
+    <h3>Learn More About Our Features</h3>
+
+    <!-- Live GIS Integration -->
+    <div class="feature-box">
+      <h4>Live GIS Integration</h4>
+      <p>Use live GIS data to assess your farm's geographic location and conditions.</p>
+      <button class="learn-more-btn" onclick="window.location.href='gis-info.html'">Learn More</button>
+    </div>
+
+    <!-- Weather Forecasting -->
+    <div class="feature-box">
+      <h4>Weather Forecasting</h4>
+      <p>Get real-time weather forecasts to help plan your farming activities.</p>
+      <button class="learn-more-btn" onclick="window.location.href='weather-info.html'">Learn More</button>
+    </div>
+
+    <!-- Soil Health -->
+    <div class="feature-box">
+      <h4>Soil Health</h4>
+      <p>Track soil health metrics to ensure optimal growth for your crops.</p>
+      <button class="learn-more-btn" onclick="window.location.href='soil-info.html'">Learn More</button>
+    </div>
+  </div>
+
+  <script>
+    // Toggle between mobile login and email login
+    function showMobileLogin() {
+      document.getElementById("mobile-login").style.display = "block";
+      document.getElementById("email-login").style.display = "none";
+    }
+
+    function showEmailLogin() {
+      document.getElementById("email-login").style.display = "block";
+      document.getElementById("mobile-login").style.display = "none";
+    }
+  </script>
+</body>
+</html>

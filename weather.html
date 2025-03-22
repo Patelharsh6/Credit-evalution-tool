@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecasting</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 90%;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .weather-info {
+            margin-top: 20px;
+            text-align: left;
+            overflow-y: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        #map {
+            height: 300px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Weather Forecasting</h2>
+        <input type="text" id="location" placeholder="Enter location">
+        <button onclick="getWeather()">Get Weather</button>
+        <div class="weather-info">
+            <table id="weatherTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Temperature (°C)</th>
+                        <th>Condition</th>
+                        <th>Humidity (%)</th>
+                        <th>Wind Speed (km/h)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="map"></div>
+    </div>
+
+    <script>
+        let map;
+
+        function getWeather() {
+            let location = document.getElementById('location').value;
+            let apiKey = 'ca4d13b8f6cf453c8b794833252203';
+            let url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=13&aqi=yes`;
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    let tableBody = document.querySelector('#weatherTable tbody');
+                    tableBody.innerHTML = '';
+                    
+                    data.forecast.forecastday.forEach(day => {
+                        let row = `<tr>
+                            <td>${day.date}</td>
+                            <td>${day.day.avgtemp_c}°C</td>
+                            <td>${day.day.condition.text}</td>
+                            <td>${day.day.avghumidity}%</td>
+                            <td>${day.day.maxwind_kph} km/h</td>
+                        </tr>`;
+                        tableBody.innerHTML += row;
+                    });
+                    updateMap(data.location.lat, data.location.lon);
+                })
+                .catch(error => {
+                    document.querySelector('#weatherTable tbody').innerHTML = "<tr><td colspan='5'>Error fetching weather data</td></tr>";
+                });
+        }
+
+        function updateMap(lat, lon) {
+            if (!map) {
+                map = L.map('map').setView([lat, lon], 10);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+                L.marker([lat, lon]).addTo(map);
+            } else {
+                map.setView([lat, lon], 10);
+                L.marker([lat, lon]).addTo(map);
+            }
+        }
+    </script>
+</body>
+</html>
