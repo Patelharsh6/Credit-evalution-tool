@@ -8,7 +8,7 @@
 
 /* Body Styling */
 body {
-    background-color: #344dda;
+    background-color: #fafbff;
     color: #333;
 }
 
@@ -16,7 +16,7 @@ body {
 header {
     background-color: #358600;
     padding: 20px;
-    color: rgb(31, 30, 30);
+    color: rgb(252, 252, 252);
     position: relative;
 }
 #nav-list{
