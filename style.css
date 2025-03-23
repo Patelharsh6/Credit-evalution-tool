@@ -16,7 +16,7 @@ body {
 header {
     background-color: #358600;
     padding: 20px;
-    color: white;
+    color: rgb(31, 30, 30);
     position: relative;
 }
 #nav-list{
